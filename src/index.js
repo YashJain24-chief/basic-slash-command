@@ -17,7 +17,7 @@ const rest = new REST({ version: "10" }).setToken(BOT_TOKEN);
 
 // we pass in intents because we want to receive events related to guillds and guild messages
 const client = new Client({
-  intents: ["Guilds", "GuildMessages", "MessageContent"],
+  intents: ["Guilds", "GuildMessages", "MessageContent", "GuildMembers"],
 });
 
 //on basically listens to an event, Basically ready event is triggered whenever bot comes online
@@ -49,6 +49,10 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
+client.on("guildMemberAdd", (member) => {
+  console.log(member);
+});
+
 const commands = [
   {
     name: "hey",
@@ -66,6 +70,9 @@ async function main() {
 
     //registering/updating all our guild commands, recommended approach is to used global commands
     await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
+
+    const data = await rest.get(Routes.invite("caVHFA9"));
+    console.log("my invite", data);
 
     console.log("Successfully reloaded application (/) commands.");
 
