@@ -50,6 +50,10 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 client.on("guildMemberAdd", (member) => {
+  //create roles on the discord server
+  //get the ids of those roles
+
+  //adding roles to a user whenever he joins the server
   member.roles.add("1045721239014092881");
   // member.guild.channels.cache.get("707323130523418686").send(`Hi ${member.user} blabla`);
   console.log(member.user.id + " is in da house");
