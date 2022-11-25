@@ -57,6 +57,7 @@ client.on("guildMemberAdd", (member) => {
   member.roles.add("1045721239014092881");
   // member.guild.channels.cache.get("707323130523418686").send(`Hi ${member.user} blabla`);
   console.log(member.user.id + " is in da house");
+  // console.log("invite manager", member.guild.invites.guild.invites);
 });
 
 const commands = [
