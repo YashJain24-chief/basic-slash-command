@@ -54,10 +54,11 @@ client.on("guildMemberAdd", (member) => {
   //get the ids of those roles
 
   //adding roles to a user whenever he joins the server
-  member.roles.add("1045721239014092881");
+  // member.roles.add("1045721239014092881");
   // member.guild.channels.cache.get("707323130523418686").send(`Hi ${member.user} blabla`);
-  console.log(member.user.id + " is in da house");
+  // console.log(member.user.id + " is in da house");
   // console.log("invite manager", member.guild.invites.guild.invites);
+  console.log('New Member added')
 });
 
 const commands = [
@@ -78,8 +79,8 @@ async function main() {
     //registering/updating all our guild commands, recommended approach is to used global commands
     await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
 
-    const data = await rest.get(Routes.invite("caVHFA9"));
-    console.log("my invite", data);
+    // const data = await rest.get(Routes.invite("caVHFA9"));
+    // console.log("my invite", data);
 
     console.log("Successfully reloaded application (/) commands.");
 
